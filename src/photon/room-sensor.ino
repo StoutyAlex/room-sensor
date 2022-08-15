@@ -10,6 +10,10 @@ void setup() {
 }
 
 void loop() {
+    if (Particle.connected() == false) {
+        Particle.connect();
+    }
+
     double temperature = tempAndHum.readTemperature();
     double humidity = tempAndHum.readHumidity();
     double lightLevel = light.readVisible();
@@ -22,5 +26,6 @@ void loop() {
     Particle.publish("humidity", humidityString, WITH_ACK);
     Particle.publish("light", lightString, WITH_ACK);
 
-    delay(900000);
+    delay(15000);
+    System.sleep(SLEEP_MODE_DEEP, 30);
 }
