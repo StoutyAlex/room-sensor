@@ -22,9 +22,9 @@ void loop() {
     String humidityString = String(humidity);
     String lightString = String(lightLevel);
 
-    bool tempPublished = Particle.publish("temperature", temperatureString, WITH_ACK);
-    bool humidityPublished = Particle.publish("humidity", humidityString, WITH_ACK);
-    bool lightPublished = Particle.publish("light", lightString, WITH_ACK);
+    bool tempPublished = Particle.publish("sensor/data/temperature", temperatureString, WITH_ACK);
+    bool humidityPublished = Particle.publish("sensor/data/humidity", humidityString, WITH_ACK);
+    bool lightPublished = Particle.publish("sensor/data/light", lightString, WITH_ACK);
 
     Serial.println("Temperature event published: " + String(tempPublished));
     Serial.println("Humidity event published: " + String(humidityPublished));
